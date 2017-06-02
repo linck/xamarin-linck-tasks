@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LinckTasks.TaskEditionPage"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Deletar" Command="{Binding DeleteTaskCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <Entry Placeholder="Título" Text="{Binding TaskTitle}" />
+        <Entry Placeholder="Descrição" Text="{Binding Description}" />
+        <Entry Placeholder="Autor" Text="{Binding Author}" />
+        <StackLayout  Orientation="Horizontal">
+            <Label Text="Data Inicio"/>
+            <DatePicker Date="{Binding Date}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Feito"/>
+            <Switch IsToggled="{Binding done}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+            <Button Text="Salvar" Command="{Binding SaveTaskCommand}"/>
+            <Button Text="Deletar" Command="{Binding DeleteTaskCommand}"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

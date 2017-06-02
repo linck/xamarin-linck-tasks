@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LinckTasks.TaskListPage"
+             Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Adcionar" Command="{Binding TaskEditionCommand}"/>
+        <ToolbarItem Text="Sair" Command="{Binding LogoutCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <ActivityIndicator Margin="50" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+        <ListView ItemsSource="{Binding TaskModels}" HasUnevenRows="true"
+              ItemSelected="ListView_OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="20" IsVisible="{Binding ListViewVisible}">
+                            <Label Text="{Binding Title}" TextColor="Black" Font="Large"/>
+                            <Label Text="{Binding Description}" TextColor="Gray" Font="Small"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:LinckTasks"
+             x:Class="LinckTasks.MainPage"
+             Title="{Binding Title}">
+    
+    <StackLayout
+        VerticalOptions="CenterAndExpand">
+        <Label Text="Bem Vindo" HorizontalOptions="Center" FontSize="Large"/>
+        <Label Text="ao"  HorizontalOptions="Center" FontSize="Large"/>
+        <Label Text="Organizador de Tarefas"  HorizontalOptions="Center" FontSize="Large"/>
+        <Button Command="{Binding LogonCommand}"
+                BackgroundColor="Indigo"
+                TextColor="White"
+                Text="Entrar"/>
+    </StackLayout>
+    
+
+</ContentPage>
