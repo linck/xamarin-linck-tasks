@@ -4,16 +4,10 @@
              xmlns:local="clr-namespace:LinckTasks"
              x:Class="LinckTasks.MainPage"
              Title="{Binding Title}">
-    
+
     <StackLayout
         VerticalOptions="CenterAndExpand">
-        <Label Text="Bem Vindo" HorizontalOptions="Center" FontSize="Large"/>
-        <Label Text="ao"  HorizontalOptions="Center" FontSize="Large"/>
-        <Label Text="Organizador de Tarefas"  HorizontalOptions="Center" FontSize="Large"/>
-        <Button Command="{Binding LogonCommand}"
-                BackgroundColor="Indigo"
-                TextColor="White"
-                Text="Entrar"/>
+        <Button Command="{Binding LogonCommand}" Text="Entrar" Margin="20, 0, 20, 0"/>
     </StackLayout>
     
 

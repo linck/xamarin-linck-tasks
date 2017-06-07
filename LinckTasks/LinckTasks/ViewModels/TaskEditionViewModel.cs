@@ -19,6 +19,10 @@ namespace LinckTasks.ViewModels
         public string author;
         public string Author { get { return author; } set { SetProperty(ref author, value); } }
         public string Id { get; set; }
+        private DateTime date;
+        public DateTime Date { get { return date; } set { SetProperty(ref date, value); } }
+        private bool done;
+        public bool Done { get { return done; } set { SetProperty(ref done, value); } }
 
         public bool Editing { get; set; }
 
@@ -53,16 +57,16 @@ namespace LinckTasks.ViewModels
             return Editing;
         }
 
-        private void ExecuteDeleteTask()
+        private async void ExecuteDeleteTask()
         {
             var taskModel = new TaskModel();
             taskModel.Id = Id;
 
-            apiService.DeleteteTask(taskModel);
-            Application.Current.MainPage.Navigation.PopToRootAsync();
+            await apiService.DeleteteTask(taskModel);
+            await PushAsync<TaskListViewModel>();
         }
 
-        private void ExecuteSaveTaskCommand()
+        private async void ExecuteSaveTaskCommand()
         {
             var taskModel = new TaskModel();
             taskModel = new TaskModel();
@@ -72,14 +76,14 @@ namespace LinckTasks.ViewModels
 
             if (!Editing)
             {
-                apiService.CreateTask(taskModel);
+                await apiService.CreateTask(taskModel);
             }
             else
             {
                 taskModel.Id = Id;
-                apiService.UpdateTask(taskModel);
+                await apiService.UpdateTask(taskModel);
             }
-            PushAsync<TaskListViewModel>();
+            await PushAsync<TaskListViewModel>();
         }
     }
 }
